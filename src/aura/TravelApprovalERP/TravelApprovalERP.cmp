@@ -1,0 +1,27 @@
+<aura:component controller="TravelApprovalERPController" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:attribute name="travelApproval" type="String" />
+    <aura:attribute name="approvedAmount" type="Decimal" />
+    <aura:attribute name="requestedAmount" type="Decimal" />
+    <aura:attribute name="recordId" type="String" />
+
+    <aura:attribute name="IsSpinner" type="Boolean" default="false" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <lightning:card title="Submit Actual Expense">
+        <aura:if isTrue="{!v.IsSpinner}">
+            <lightning:spinner variant="brand" size="large" />
+        </aura:if>
+
+        <div class="slds-form slds-form_horizontal slds-p-right_x-small">
+            <div class="slds-size--1-of-1 slds-p-bottom_xx-small">
+                <lightning:input type="number" name="approvedAmount" label="Approved Amount" value="{!v.approvedAmount}" formatter="currency" disabled="true"/>
+            </div>
+            <div class="slds-size--1-of-1 slds-p-bottom_xx-small">
+                <lightning:input type="number" name="requestedAmount" label="Requested Amount" value="{!v.requestedAmount}" formatter="currency" />
+            </div>
+            <lightning:button variant="brand" label="Submit" title="Submit expense" onclick="{!c.submitExpense}"/>
+        </div>
+
+    </lightning:card>
+</aura:component>
