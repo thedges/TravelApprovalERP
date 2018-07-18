@@ -17,7 +17,7 @@
             if (state === "SUCCESS") 
             {   
 				var data = response.getReturnValue();  
-				component.set("v.travelApproval", data.Id + '-' + data.Name);
+				component.set("v.travelApproval", (data.Id + '-' + data.Name).toUpperCase());
 				component.set("v.approvedAmount", data.Total_Expenses__c);
 				console.log('data=' + JSON.stringify(data));
             } 
