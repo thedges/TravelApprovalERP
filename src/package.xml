@@ -17,6 +17,10 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>Travel_Approval_Workshop</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
         <members>MuleSoftWorkshop</members>
         <name>RemoteSiteSetting</name>
     </types>

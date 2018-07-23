@@ -31,6 +31,9 @@
 	submitExpenseToERP: function (component) {
 		console.log('submitExpenseToERP invoked...');
         var self = this;
+        
+        self.showSpinner(component);
+        
         var map = {};
         
 		var action = component.get("c.storeExpenseToERP");
@@ -48,6 +51,7 @@
 			var state = response.getState();
             if (state === "SUCCESS") 
             {   
+                self.hideSpinner(component);
                 $A.get('e.force:refreshView').fire();
                 
 				var toastEvent = $A.get("e.force:showToast");
@@ -62,6 +66,7 @@
             } 
             else 
             {
+                self.hideSpinner(component);
 				self.handleErrors(response.getError());
             }
         });
@@ -85,5 +90,11 @@
         let toastEvent = $A.get("e.force:showToast");
         toastEvent.setParams(toastParams);
         toastEvent.fire();
+    },
+    showSpinner:function(component){
+        component.set("v.IsSpinner",true);
+    },
+    hideSpinner:function(component){
+        component.set("v.IsSpinner",false);
     }
 })
