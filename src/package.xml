@@ -17,6 +17,10 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>MuleSoft</members>
+        <name>NamedCredential</name>
+    </types>
+    <types>
         <members>Travel_Approval_Workshop</members>
         <name>PermissionSet</name>
     </types>
